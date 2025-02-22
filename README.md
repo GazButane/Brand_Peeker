@@ -6,4 +6,12 @@ Brand Peeker is a python library that allows you to scrape information about a b
 
 ### Currently available features:
 
-- Download a website's favicon from its url
+1. Download favicon from url
+2. Get the root url of a website
+3. Get url from web browser query
+4. Get icon from web browser query
+
+### Try this library:
+To test the different existing features, clone the repo and run:
+
+    python3 tryBrandPeeker.py
