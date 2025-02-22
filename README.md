@@ -4,6 +4,6 @@
 
 Brand Peeker is a python library that allows you to scrape information about a brand, such as its logo or website.
 
-### Currently avalable features:
+### Currently available features:
 
 - Download a website's favicon from its url
