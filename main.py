@@ -11,4 +11,7 @@ def getIconByUrl(url):
     open(outpuFileName, 'wb').write(r.content)
 
 
-getIconByUrl(input("Type a valid url: "))
+def getIconByName(name):
+    url = getUrls.getUrlByWebsearch(name)
+    getIconByUrl(url)
+

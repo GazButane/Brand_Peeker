@@ -12,7 +12,7 @@ def getRootUrl(url):
     if validators.url(finalUrl):
         return(finalUrl)
     else:
-        print(f'Error: Cleaned url: {finalUrl} is not valid.')
+        print(f'getRootUrl - Error: Cleaned url: {finalUrl} is not valid.')
 
 def getFaviconUrl(url):
     rootUrl = getRootUrl(url)
@@ -20,4 +20,33 @@ def getFaviconUrl(url):
     if validators.url(faviconUrl):
         return(faviconUrl)
     else:
-        print(f'Error: Favicon url: {faviconUrl} is not valid.')
+        print(f'getFaviconUrl - Error: Favicon url: {faviconUrl} is not valid.')
+
+
+def getUrlByWebsearch(query):
+    print('getUrlByWebsearch - Scrapping url...')
+    browser = 'https://duckduckgo.com/html/'
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82',
+    }
+    parameters = {
+        'q': query
+    }
+
+    response = requests.get(browser, params=parameters, headers=headers)
+
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        firstResult = soup.find('a', class_='result__a')
+
+        if firstResult:
+            url = firstResult['href']
+            print(f'First link found: {url}')
+            print('-  Done')
+            return url
+        else:
+            return "getUrlByWebsearch: Link not found"
+    else:
+        return f"getUrlByWebsearch - Error: Request failed: {response.status_code}"
+
