@@ -1,5 +1,5 @@
 import validators
-import requests, json
+import requests
 from bs4 import BeautifulSoup
 
 
