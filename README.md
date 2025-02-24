@@ -11,7 +11,14 @@ Brand Peeker is a python library that allows you to scrape information about a b
 3. Get url from web browser query
 4. Get icon from web browser query
 
+### Installation:
+```bash
+   pip install Brand-Peeker
+   ```
+
+
 ### Try this library:
 To test the different existing features, clone the repo and run:
-
-    python3 tryBrandPeeker.py
+```bash
+   python3 tryBrandPeeker.py
+   ```
