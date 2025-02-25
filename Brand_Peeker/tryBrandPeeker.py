@@ -21,7 +21,7 @@ while True:
 
     if selection == 1:
         print('Download favicon from url:')
-        main.getIconByUrl(input('Type a valid url: '))
+        main.getIconByUrl(input('Type a valid url: '), input('path/to/filename.ico (press enter to skip): '))
         print('- - - - - - - - - - - - - - - - - - - - - - - - - - - - -')
 
     if selection == 2:
@@ -36,7 +36,7 @@ while True:
 
     if selection == 4:
         print('Get icon from web browser query:')
-        main.getIconByName(input('Type something: '))
+        main.getIconByName(input('Type something: '), input('path/to/filename.ico (press enter to skip): '))
         print('- - - - - - - - - - - - - - - - - - - - - - - - - - - - -')
 
     if selection == 5:

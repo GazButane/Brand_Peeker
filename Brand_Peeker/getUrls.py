@@ -18,7 +18,21 @@ def getFaviconUrl(url):
     rootUrl = getRootUrl(url)
     faviconUrl = rootUrl + "favicon.ico"
     if validators.url(faviconUrl):
-        return(faviconUrl)
+        r = requests.get(faviconUrl)
+        if r.status_code == 404:
+            print(f"{faviconUrl} get <<404 not found>>, trying to scrape real favicon path...")
+            response = requests.get(str(rootUrl))
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                path = soup.find('link', rel="shortcut icon")
+                if path:
+                    faviconUrl = path['href']
+                    print(f"- Found: {faviconUrl}")
+                    return(faviconUrl)
+
+        else:
+            return(faviconUrl)
+
     else:
         print(f'getFaviconUrl - Error: Favicon url: {faviconUrl} is not valid.')
 
